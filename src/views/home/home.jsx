@@ -2,16 +2,11 @@ import React from "react";
 
 class Home extends React.Component {
   render() {
-    const { items } = this.props;
+    const { name, address } = this.props;
     return (
       <div className="container">
-        {items.map((item, index) => {
-          return (
-            <div className="item" key={index}>
-              {/* {item.name} */}
-            </div>
-          );
-        })}
+        <h4 className="name">{name}</h4>
+        <b className="address">{address}</b>
       </div>
     );
   }

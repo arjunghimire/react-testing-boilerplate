@@ -2,24 +2,13 @@ import React from "react";
 import { shallow } from "enzyme";
 import Home from "./home.jsx";
 
-const addSum = (x, y) => x + y;
-const items = [
-  {
-    name: "Arjun"
-  },
-  {
-    name: "Arjun"
-  }
-];
+const name = "Arjun Ghimire";
+const address = "Butwal";
 
 describe("Home Component", () => {
-  it("render a component with its props", () => {
-    const wrapper = shallow(<Home items={items} />);
-    expect(wrapper.find(".item")).toHaveLength(2);
-  });
-});
-describe("Add Sum", () => {
-  it("let add x and y", () => {
-    expect(addSum(1, 2)).toBe(3);
+  it(`props name => ${name} && address => ${address} are tested successfully`, () => {
+    const wrapper = shallow(<Home name={name} address={address} />);
+    expect(wrapper.find(".container h4.name").text()).toBe(name);
+    expect(wrapper.find(".container b.address").text()).toBe(address);
   });
 });
