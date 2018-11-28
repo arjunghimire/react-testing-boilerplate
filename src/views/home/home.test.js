@@ -2,18 +2,24 @@ import React from "react";
 import { shallow } from "enzyme";
 import Home from "./home.jsx";
 
-describe("Home", () => {
-  let wrapper;
+const addSum = (x, y) => x + y;
+const items = [
+  {
+    name: "Arjun"
+  },
+  {
+    name: "Arjun"
+  }
+];
 
-  beforeEach(() => {
-    wrapper = shallow(<Home />);
+describe("Home Component", () => {
+  it("render a component with its props", () => {
+    const wrapper = shallow(<Home items={items} />);
+    expect(wrapper.find(".item")).toHaveLength(2);
   });
-
-  test("should render heading", () => {
-    expect(wrapper.find("h1.display-4").text()).toBe("Simple React Template");
-  });
-
-  test("should have a learn more button", () => {
-    expect(wrapper.find("a.btn.btn-lg")).toBeDefined();
+});
+describe("Add Sum", () => {
+  it("let add x and y", () => {
+    expect(addSum(1, 2)).toBe(3);
   });
 });
